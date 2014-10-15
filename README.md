@@ -16,5 +16,9 @@ sudo pip3 install control -i http://pypi.douban.com/simple/
 ## Usage
 
 ```bash
-python3 高阶系统闭环传递函数.py
+python3.4 高阶系统闭环传递函数.py
 ```
+
+## Links
+
+- http://python-control.sourceforge.net/manual/
