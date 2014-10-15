@@ -22,3 +22,5 @@ python3.4 高阶系统闭环传递函数.py
 ## Links
 
 - http://python-control.sourceforge.net/manual/
+
+- http://matplotlib.org/users/pyplot_tutorial.html

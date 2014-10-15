@@ -9,6 +9,10 @@ denominator = [1, 0.6, 1]
 sys = tf(numerator, denominator)
 
 T, yout = step_response(sys)
-plot(T, yout)
-show()
 
+# 绘图
+plot(T, yout)
+title("System Step Response")
+xlabel("time/sec")
+ylabel("response/value")
+show()
