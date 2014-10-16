@@ -1,18 +1,24 @@
-from scipy import *
-from control import *
 from matplotlib.pyplot import *
-from control.matlab import *
+from sympy.polys.dispersion import dispersion, dispersionset
+import sympy
+import control
 
-numerator = [45]
-# denominator = [[1, 0.6, 1], [1, 3, 9], [1, 5]]
-denominator = [1, 0.6, 1]
-sys = tf(numerator, denominator)
+# 化简分母
+S = sympy.symbols('S')
+denominator = (S**2 + 0.6*S + 1) * (S**2 + 3*S + 9) * (S + 5)
+denominator = denominator.expand() # 化简表达式
+denominator = sympy.poly(denominator, S).all_coeffs() # 转成多项式 list
+denominator = list(map(float, denominator)) # convert sympy.core.numbers.Float to float
 
-T, yout = step_response(sys)
+numerator = [45.]
+sys = control.matlab.tf(numerator, denominator)
+
+# 阶跃
+T, yout = control.step_response(sys)
 
 # 绘图
 plot(T, yout)
 title("System Step Response")
-xlabel("time/sec")
-ylabel("response/value")
+xlabel("time / sec")
+ylabel("response / value")
 show()
