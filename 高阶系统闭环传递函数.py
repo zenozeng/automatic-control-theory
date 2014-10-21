@@ -30,9 +30,6 @@ sys = control.matlab.tf(numerator, denominator)
 
 # 阶跃
 T, yout = control.step_response(sys)
-print(T)
-print(yout)
-
 step_info(T, yout)
 
 # 绘图
