@@ -9,10 +9,10 @@ denominator = denominator.expand()
 denominator = sympy.poly(denominator, S).all_coeffs()
 denominator = list(map(float, denominator))
 
-numerator = [1.]
+numerator = [1, 1]
 sys = control.matlab.tf(numerator, denominator)
 r, k = control.matlab.rlocus(sys)
 pyplot.plot(k, r)
 pyplot.grid()
-pyplot.axis([-20, 20, -20, 20])
+pyplot.axis([-5, 5, -5, 5])
 pyplot.show()
